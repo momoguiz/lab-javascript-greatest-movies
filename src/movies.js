@@ -1,16 +1,41 @@
 // Iteration 1: All directors? - Get the array of all directors.
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
 // How could you "clean" a bit this array and make it unified (without duplicates)?
-function getAllDirectors(moviesArray) {}
+// function getAllDirectors(moviesArray) {}
+const getAllDirectors =(moviesArray) => { 
+    const allDirector=moviesArray.map(Element => Element.director)
+return allDirector};
+
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
-function howManyMovies(moviesArray) {}
+// function howManyMovies(moviesArray) {}
+const howManyMovies =(moviesArray) => {
+    if(!moviesArray.length){return 0}
+    const directstiven=moviesArray.filter(element =>  element.genre.includes("Drama") && element.director === 'Steven Spielberg')
+    return directstiven.length;
+}
+
+
+
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
-function scoresAverage(moviesArray) {}
+//function scoresAverage(moviesArray) { }
+const scoresAverage = (moviesArray)=> { 
+    if (!moviesArray.length) { return 0 }
+    moviesArray.filter(element => element.score)
+    const scoresAv =moviesArray.reduce((acc,curr) => (acc + curr.score), 0)/ moviesArray.length
+    const roundAverge = scoresAv.toFixed(2)
+    return Number(roundAverge)
+    
+}
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-function dramaMoviesScore(moviesArray) {}
+//function dramaMoviesScore(moviesArray) {}
+const dramaMoviesScore=(moviesArray) => {
+    const drameScore=moviesArray.filter(element =>element.genre.includes('Drama'))
+    return scoresAverage(drameScore)
+    
+}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(moviesArray) {}
